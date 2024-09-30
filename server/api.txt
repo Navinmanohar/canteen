@@ -1,0 +1,60 @@
+
+
+user auth
+${BASE_URL}/api/auth/register
+${BASE_URL}/api/auth/verify-otp
+${BASE_URL}/api/auth/login
+
+
+
+
+user data
+
+${BASE_URL}/api/user/order-history
+
+${BASE_URL}/api/user/apply-admin
+
+${BASE_URL}/api/user/profile
+
+${BASE_URL}/api/user/verify-profile-otp
+
+
+admin
+
+${BASE_URL}/api/admin/manage-application
+${BASE_URL}/api/admin/user
+${BASE_URL}/api/admin/revoke
+${BASE_URL}/api/admin/user/:userId
+${BASE_URL}/api/admin/admin-requests
+
+
+
+canteen
+
+${BASE_URL}/api/canteen
+
+${BASE_URL}/api/canteen/item-add
+${BASE_URL}/api/canteen/item/update/:itemId
+${BASE_URL}/api/canteen/item/delete/:itemId
+${BASE_URL}/api/canteen/view-orders
+${BASE_URL}/api/canteen/order/accept/:orderId
+${BASE_URL}/api/canteen/order/cancel/:orderId
+${BASE_URL}/api/canteen/transactions
+
+
+feedback
+${BASE_URL}/feedback
+${BASE_URL}/feedback/:itemId
+
+analytics
+
+${BASE_URL}/api/canteen/analytics
+
+order for user
+${BASE_URL}/api/user/orders  //create
+${BASE_URL}/api/user/order/:userId  //geting order
+${BASE_URL}/api/user/order/cancel/:orderId  //cancel
+
+payment
+
+${BASE_URL}/api/payment

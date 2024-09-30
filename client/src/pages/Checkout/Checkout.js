@@ -70,7 +70,7 @@ console.log(data,"data from backend")
       setOrderId(data.order.id); // Save orderId for the payment process
 
       const options = {
-        key: "rzp_test_ZAHC2tyV82AQ64", // Replace with your Razorpay key ID
+        key:process.env.REACT_APP_RAZORPAY_KEY_ID, // Replace with your Razorpay key ID
         amount: data.amount,
         currency: 'INR',
         name: 'Canteen',

@@ -42,7 +42,7 @@ const CanteenItem = ({ item }) => {
         <h2 className="text-lg font-bold mt-2">{item.name}</h2>
         <p className="text-gray-600">{item.description}</p>
         <div className="flex justify-between items-center mt-2">
-          <span className="text-gray-900">${item.price}</span>
+          <span className="text-gray-900">₹{item.price}</span>
 
           {/* If item exists in the bucket, show "Go to Bucket" */}
           {existsInBucket ? (

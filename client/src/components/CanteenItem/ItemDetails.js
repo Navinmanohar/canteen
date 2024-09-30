@@ -72,7 +72,7 @@ const ItemDetails = () => {
               <div className="p-6">
                 <h1 className="text-3xl font-bold mb-4">{item[0]?.name}</h1>
                 <p className="text-gray-700 mb-2">
-                  <strong>Price:</strong> ${item[0]?.price}
+                  <strong>Price:</strong> ₹{item[0]?.price}
                 </p>
                 <p className="text-gray-700 mb-2">
                   <strong>Cooking Time:</strong> {item[0]?.cookingTime} mins

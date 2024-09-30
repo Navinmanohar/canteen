@@ -8,7 +8,7 @@ import {
   FEEDBACK_FETCH_FAIL,
 } from '../constants/feedbackConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // Submit feedback for an item
 export const submitFeedback = (itemId, feedbackData) => async (dispatch, getState) => {

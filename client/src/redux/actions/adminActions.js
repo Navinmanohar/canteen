@@ -19,7 +19,7 @@ import {
   ADMIN_LIST_REQUEST,
 } from '../constants/adminConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // Manage application
 export const manageApplication = (userId,action) => async (dispatch, getState) => {

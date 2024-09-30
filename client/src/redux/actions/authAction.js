@@ -20,7 +20,7 @@ import {
   
 } from '../constants/userConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // User login
 export const loginUser = (email, password) => async (dispatch) => {

@@ -16,7 +16,7 @@ import {
   CANTEEN_ITEM_USER_FAIL,CANTEEN_ITEM_USER_SUCCESS, CANTEEN_ITEM_USER_REQUEST
 } from '../constants/userConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // Fetch order history
 export const fetchOrderHistory = () => async (dispatch, getState) => {

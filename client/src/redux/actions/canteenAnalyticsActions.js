@@ -5,7 +5,7 @@ import {
   CANTEEN_ANALYTICS_FAIL,
 } from '../constants/canteenConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // Fetch canteen analytics data
 export const fetchCanteenAnalytics = () => async (dispatch, getState) => {

@@ -33,7 +33,7 @@ import {
 
 } from '../constants/canteenConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // Add a new item to the canteen
 export const addCanteenItem = (itemData) => async (dispatch, getState) => {

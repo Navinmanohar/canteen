@@ -19,7 +19,7 @@ CANCEL_ORDER_SUCCESS ,
  CANCEL_ORDER_FAIL ,
 } from '../constants/orderConstants';
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://canteen-1-t0lk.onrender.com";
 
 // Fetch user orders
 export const fetchUserOrders = () => async (dispatch, getState) => {

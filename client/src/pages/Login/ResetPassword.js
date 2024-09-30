@@ -20,7 +20,7 @@ const ResetPassword = () => {
 
   if (success === true) {
     navigate('/otp-verify'); // Redirect to the OTP verification page after success
-    console.log("Redirecting to OTP verification...");
+    // console.log("Redirecting to OTP verification...");
   }
 
   return (

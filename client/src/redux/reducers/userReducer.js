@@ -27,7 +27,7 @@ import {
   };
   
   export const userDataReducer = (state = initialState, action) => {
-    console.log(action.payload,"action type",action.type,"this is action type")
+    // console.log(action.payload,"action type",action.type,"this is action type")
     switch (action.type) {
       case GET_ORDER_HISTORY_REQUEST:
       case APPLY_ADMIN_REQUEST:
@@ -51,7 +51,7 @@ import {
       case VERIFY_PROFILE_OTP_SUCCESS:
         return { ...state, loading: false, otpVerified: true };
         case USER_ORDER_HISTORY_SUCCESS:
-          console.log('Updating UserOrders:', action.payload);
+          // console.log('Updating UserOrders:', action.payload);
           return {
             ...state,
             loading: false,

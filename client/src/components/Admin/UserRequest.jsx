@@ -12,7 +12,7 @@ const UserRequest = () => {
   useEffect(() => {
     dispatch(fetchAdminRequests());
   }, [userState]);
-console.log(adminRequests[0]?.userId.name,"requests")
+// console.log(adminRequests[0]?.userId.name,"requests")
   const handleApproveAdmin = async (userId) => {
     // Logic to approve the admin
     dispatch(manageApplication(userId,"approve"))

@@ -28,7 +28,7 @@ export const fetchOrderHistory = () => async (dispatch, getState) => {
       //  console.log(config,"this is order")
     const { data } = await axios.get(`${BASE_URL}/api/user/order-history?userId=${userInfo.userData.user._id}`,config);
     
-    console.log(data,"order action")
+    // console.log(data,"order action")
     dispatch({  type:USER_ORDER_HISTORY_SUCCESS,
       payload: data });
   } catch (error) {
@@ -48,7 +48,7 @@ export const applyForAdmin = (userId) => async (dispatch, getState) => {
     const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
     const { data } = await axios.post(`${BASE_URL}/api/user/apply-admin`, {userId}, config);
-    console.log(data,"this apply")
+    // console.log(data,"this apply")
     dispatch({ type: APPLY_ADMIN_SUCCESS, payload: data });
     localStorage.setItem("userRequest",JSON.stringify(data?.request))
   } catch (error) {
@@ -66,7 +66,7 @@ export const cancelRequest = (userId) => async (dispatch, getState) => {
     const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
     const { data } = await axios.post(`${BASE_URL}/api/user/cancel-admin`, {userId}, config);
-    console.log(data,"this cancel")
+    // console.log(data,"this cancel")
     dispatch({ type: APPLY_ADMIN_SUCCESS, payload: data });
     localStorage.setItem("userRequest",JSON.stringify(data?.request))
   } catch (error) {
@@ -115,12 +115,12 @@ export const verifyProfileOTP = (otp) => async (dispatch, getState) => {
 export const fetchAllItemsUser = () => async (dispatch, getState) => {
   try {
     dispatch({ type: CANTEEN_ITEM_USER_REQUEST });
-  console.log("requested")
+  // console.log("requested")
     const { userInfo } = getState().user;
     // const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
     const { data } = await axios.get(`${BASE_URL}/api/user/all-item`);
-    console.log(data,"from canteen action")
+    // console.log(data,"from canteen action")
     dispatch({ type: CANTEEN_ITEM_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

@@ -41,7 +41,7 @@ export const updateBucketQuantity = (item, qty) => (dispatch, getState) => {
 };
 
   export const removeFromBucket = (item) => (dispatch, getState) => {
-    console.log(item,"remove")
+    // console.log(item,"remove")
     dispatch({
       type: 'BUCKET_REMOVE_ITEM',
       payload: item,

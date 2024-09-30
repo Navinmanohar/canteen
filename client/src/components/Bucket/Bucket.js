@@ -29,7 +29,7 @@ const Bucket = () => {
 
   const handleDecreaseQuantity = (item) => {
     const newItem = bucketItems.find((item) => item._id === item._id);
-    console.log(item,"incff")
+    // console.log(item,"incff")
     if (newItem.quantity > 1) {
       dispatch(updateBucketQuantity(item, -1)); // Decrease by 1, but not below 1
     }
@@ -39,7 +39,7 @@ const Bucket = () => {
   };
 
   const handleRemoveItem = (item) => {
-    console.log(item,"item buckte")
+    // console.log(item,"item buckte")
     dispatch(removeFromBucket(item));
   };
 

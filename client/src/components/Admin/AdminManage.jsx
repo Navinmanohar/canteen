@@ -18,7 +18,7 @@ const handleRevokeAdmin=(id)=>{
   const handleUserClick = (admin) => {
     setSelectedUser(admin); // Set the clicked user to display more details
   };
-  // console.log(error,users)
+
 
   return (
     <div className="flex min-h-screen">

@@ -18,7 +18,7 @@ const ItemDetails = () => {
 
   useEffect(() => {
     dispatch(fetchItemDetails(param.id)); // Fetch item details based on the item ID
-    console.log(param, 'item id');
+    // console.log(param, 'item id');
   }, [dispatch, param.id]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const ItemDetails = () => {
       // Simulate feedback and purchases; you may replace these with actual data from backend
       setFeedback(item.feedback || []);
       setTotalPurchases(item.totalPurchases || 0);
-      console.log(item, 'fetched item');
+      // console.log(item, 'fetched item');
     }
   }, [item]);
 

@@ -48,7 +48,7 @@ export const fetchAllUsers = () => async (dispatch, getState) => {
     const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
     const { data } = await axios.get(`${BASE_URL}/api/admin/users`, config);
-     console.log(data,"from admin")
+    //  console.log(data,"from admin")
     dispatch({ type: ADMIN_USER_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -65,7 +65,7 @@ export const fetchAllAdmin = () => async (dispatch, getState) => {
     const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
     const { data } = await axios.get(`${BASE_URL}/api/admin/all-admin`, config);
-     console.log(data,"from admin")
+    //  console.log(data,"from admin")
     dispatch({ type: ADMIN_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

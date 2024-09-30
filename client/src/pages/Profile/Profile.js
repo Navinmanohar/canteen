@@ -27,7 +27,7 @@ const request=JSON.parse(localStorage.getItem("userRequest"))
      
   }, [dispatch,userInfo]);
 
-  console.log(userProfile,"userData profile")
+  // console.log(userProfile,"userData profile")
  const handleApplyAdmin=()=>{
   dispatch(applyForAdmin(userInfo?.userData?.user?._id))
  }

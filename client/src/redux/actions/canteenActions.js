@@ -101,7 +101,7 @@ export const fetchAllItems = () => async (dispatch, getState) => {
     const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
     const { data } = await axios.get(`${BASE_URL}/api/canteen/all-item/?adminId=${userInfo.userData.user._id}`,config);
-    console.log(data,"from canteen action")
+    // console.log(data,"from canteen action")
     dispatch({ type: CANTEEN_ITEM_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -142,7 +142,7 @@ export const acceptOrder = (orderId) => async (dispatch, getState) => {
     }
     // console.log(userInfo,"accept")
     const config = { headers: { Authorization: `Bearer ${userInfo?.userData?.token}` } };
-    console.log(userInfo,config,"accept")
+    // console.log(userInfo,config,"accept")
     const { data } = await axios.post(`${BASE_URL}/api/canteen/order/accept/${orderId}`, config);
     dispatch({ type: CANTEEN_ACCEPT_ORDER_SUCCESS, payload: data });
   } catch (error) {
@@ -157,7 +157,7 @@ export const acceptOrder = (orderId) => async (dispatch, getState) => {
 export const cancelOrder = (orderId,reason) => async (dispatch, getState) => {
   try {
     dispatch({ type: CANTEEN_CANCEL_ORDER_REQUEST });
-   console.log(orderId ,"order id from action")
+  //  console.log(orderId ,"order id from action")
     const { userInfo } = getState().user;
      // Check if the token is available before making the request
      if (!userInfo || !userInfo.userData?.token) {

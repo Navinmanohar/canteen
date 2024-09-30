@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
   const { loading, error, userInfo } = useSelector((state) => state.user);
-  console.log(JSON.parse(localStorage.getItem("userInfo")), "this is local");
-  console.log(userInfo?.userData?.user, "this is nav ");
+  // console.log(JSON.parse(localStorage.getItem("userInfo")), "this is local");
+  // console.log(userInfo?.userData?.user, "this is nav ");
 
   return (
     <nav className="bg-gray-800 p-4 sticky top-0 z-50">

@@ -47,10 +47,10 @@ export const registerUser = (name,phone,email, password) => async (dispatch) => 
 
     const config = { headers: { 'Content-Type': 'application/json' } };
     const { data } = await axios.post(`${BASE_URL}/api/auth/register`, { name,phone,email, password }, config);
-       console.log(data ,"this is redux")
+      //  console.log(data ,"this is redux")
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
   } catch (error) {
-    console.log(error ,"this is redux error")
+    // console.log(error ,"this is redux error")
     dispatch({
       type: USER_REGISTER_FAIL,
       payload: error.response && error.response.data.message ? error.response : error.message,
@@ -96,10 +96,10 @@ export const otpSend = (email) => async (dispatch) => {
 
     const config = { headers: { 'Content-Type': 'application/json' } };
     const { data } = await axios.post(`${BASE_URL}/api/auth/otp`, { email }, config);
-       console.log(data ,"this is redux")
+      //  console.log(data ,"this is redux")
     dispatch({ type: USER_OTP_SUCCESS, payload: data });
   } catch (error) {
-    console.log(error ,"this is redux error")
+    // console.log(error ,"this is redux error")
     dispatch({
       type: USER_OTP_FAIL,
       payload: error.response && error.response.data.message ? error.response : error.message,
@@ -133,7 +133,7 @@ export const resetPassword = (email, otp, newPassword) => async (dispatch) => {
     const config = {
       headers: { 'Content-Type': 'application/json' },
     };
-   console.log(email,otp ,"and ",newPassword)
+  //  console.log(email,otp ,"and ",newPassword)
     const { data } = await axios.post(`${BASE_URL}/api/auth/reset-password`, { email, otp, newPassword }, config);
 
     dispatch({ type: PASSWORD_RESET_CONFIRM_SUCCESS, payload: data });

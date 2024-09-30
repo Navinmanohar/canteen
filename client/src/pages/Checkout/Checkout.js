@@ -66,7 +66,7 @@ const Checkout = () => {
         currency: "INR",
         userId: userInfo?.userData?.user._id,
       });
-console.log(data,"data from backend")
+// console.log(data,"data from backend")
       setOrderId(data.order.id); // Save orderId for the payment process
 
       const options = {
@@ -77,7 +77,7 @@ console.log(data,"data from backend")
         description: 'Basket Payment',
         order_id: data.order.id, // Razorpay order ID
         handler: async (response) => {
-          console.log(response,"response")
+          // console.log(response,"response")
           const paymentData = {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
@@ -85,7 +85,7 @@ console.log(data,"data from backend")
             userId:userInfo.userData.user._id,
             amount:totalPrice * 100,
           };
-          console.log('Payment Data: ', paymentData);
+          // console.log('Payment Data: ', paymentData);
           // Verify payment on the backend
           const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/verify-payment`, paymentData);
 

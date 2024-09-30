@@ -57,7 +57,7 @@ const OrderHistory = () => {
   // Function to open the cancel modal
   const openCancelModal = (orderId) => {
     setSelectedOrderId(orderId);
-    console.log(orderId,"orderid in model")
+    // console.log(orderId,"orderid in model")
     setShowCancelModal(true);
   };
 

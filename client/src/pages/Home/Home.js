@@ -20,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchAllItemsUser());
   },[dispatch]); 
-  console.log(allItem,"from home") 
+  // console.log(allItem,"from home") 
 
   // Set filteredItems to allItem initially when allItem is fetched from backend
   useEffect(() => {

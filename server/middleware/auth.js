@@ -3,7 +3,7 @@ const User = require('../model/user');
 
 exports.auth = async (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
-console.log(token,"toke order")
+// console.log(token,"toke order")
   if (!token) {
     return res.status(401).json({ error: 'Access denied. No token provided.' });
   }

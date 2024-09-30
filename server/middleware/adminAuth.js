@@ -4,7 +4,7 @@ const User = require('../model/user');
 // Middleware to check if the user is a super admin
 const superAdminAuth = async (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
-console.log(token,"this is admin token")
+// console.log(token,"this is admin token")
   if (!token) {
     return res.status(401).json({ error: 'Access denied. No token provided.' });
   }
@@ -40,7 +40,7 @@ const canteenAdminAuth = async (req, res, next) => {
 
     // Find the user and check if they are a canteen admin
     const user = await User.findById(req.user.id);
-    console.log(user,"from middle")
+    // console.log(user,"from middle")
     if (!user || !user.isAdmin || user.isSuperAdmin) {
       return res.status(403).json({ error: 'Access denied. You are not a Canteen Admin.' });
     }

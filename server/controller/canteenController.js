@@ -4,7 +4,7 @@ const fs = require('fs'); // To handle file system operations for deleting the o
 // Add a new canteen item with image upload
 exports.addCanteenItem = async (req, res) => {
   const { name, price, cookingTime, description,day } = req.body;
-console.log(req.file,req.body,"file")
+// console.log(req.file,req.body,"file")
   // Check if image was uploaded
   if (!req.file) {
     return res.status(400).json({ error: 'Image upload is required' });
@@ -41,7 +41,7 @@ exports.updateCanteenItem = async (req, res) => {
   try {
     // Find the existing item
     const item = await CanteenItem.findById(itemId);
-    console.log(item,req.user.id,"from canteen update")
+    // console.log(item,req.user.id,"from canteen update")
     if (!item || item.adminId.toString() !== req.user.id) {
       return res.status(404).json({ error: 'Item not found or unauthorized' });
     }
@@ -98,7 +98,7 @@ const adminId=req.query.adminId || req.body.adminId;
 // console.log(adminId,"admin id")
   try {
     const item = await CanteenItem.find({adminId:adminId});
-    console.log(item,"item data",adminId)
+    // console.log(item,"item data",adminId)
 
     res.status(200).json({ message: 'Item get successfully',item });
   } catch (error) {

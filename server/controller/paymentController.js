@@ -12,7 +12,7 @@ const razorpayInstance = new Razorpay({
 // Step 1: Create Order with User Data
 exports.createOrder = async (req, res) => {
   const { amount, currency, userId } = req.body;
-console.log(req.body,"this is  create order")
+// console.log(req.body,"this is  create order")
   try {
     const user = await User.findById(userId); // Find the user making the payment
     if (!user) {
@@ -37,7 +37,7 @@ console.log(req.body,"this is  create order")
 exports.verifyPayment = async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature, userId, amount,itemId } = req.body;
   
-  console.log("orderid:",razorpay_order_id,"paymentId", razorpay_payment_id,"signature:", razorpay_signature, userId, amount ,"this is verify body")
+  // console.log("orderid:",razorpay_order_id,"paymentId", razorpay_payment_id,"signature:", razorpay_signature, userId, amount ,"this is verify body")
   const generated_signature = crypto
     .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
     .update(razorpay_order_id + '|' + razorpay_payment_id)
@@ -81,7 +81,7 @@ exports.verifyPayment = async (req, res) => {
 exports.transactions = async (req, res) => {
   try {
     // console.log("Hiiiiii")
-    console.log(req.body,req.user,"this form transaction")
+    // console.log(req.body,req.user,"this form transaction")
     const transactions = await Payment.find();
     res.status(200).json({message:"Transaction geting succesfull",transactions});
   } catch (error) {

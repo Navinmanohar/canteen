@@ -26,7 +26,7 @@ const OrderDetails = () => {
   if (loading) {
     return <p>Loading...</p>;
   }
-  console.log(orderDetails,"details")
+  // console.log(orderDetails,"details")
 
   // if (error) {
   //   return <p className="text-red-500">{error}</p>;

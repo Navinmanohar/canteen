@@ -44,7 +44,7 @@ const initialState = {
 };
 
 export const canteenReducer = (state = initialState, action) => {
-  console.log(action?.payload,"from canteeen")
+  // console.log(action?.payload,"from canteeen")
   switch (action.type) {
     case CANTEEN_ADD_ITEM_REQUEST:
     case CANTEEN_UPDATE_ITEM_REQUEST:

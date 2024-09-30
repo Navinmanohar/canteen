@@ -164,7 +164,7 @@ exports.cancelOrder = async (req, res) => {
   
     try {
       const order = await Order.findById(orderId).populate('userId');
-      console.log(order)
+      // console.log(order)
       if (!order || order?.adminId?.toString() !== req.user.id) {
         return res.status(404).json({ error: 'Order not found or unauthorized' });
       }

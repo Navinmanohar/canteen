@@ -8,7 +8,7 @@ const Transaction = require('../model/Transaction');
 // Approve or deny admin application
 exports.manageAdminApplication = async (req, res) => {
   const { userId, action } = req.body;
-console.log(userId, "this is request")
+// console.log(userId, "this is request")
   try {
     const adminRequest = await AdminRequest.findById(userId).populate('userId'); //here id means not user of requested id there id means object id store in admin schema
     if (!adminRequest) {
@@ -42,7 +42,7 @@ console.log(userId, "this is request")
 exports.getAllUsers = async (req, res) => {
     try {
       // Get all users
-      console.log("called")
+      // console.log("called")
       const users = await User.find({isAdmin:false}).select('-password'); // Exclude password from the response
       res.status(200).json(users);
     } catch (error) {
@@ -53,7 +53,7 @@ exports.getAllUsers = async (req, res) => {
 exports.getAllAdmins = async (req, res) => {
     try {
       // Get all users
-      console.log("called")
+      // console.log("called")
       const users = await User.find({isAdmin:true,isSuperAdmin:false}).select('-password'); // Exclude password from the response
       res.status(200).json(users);
     } catch (error) {

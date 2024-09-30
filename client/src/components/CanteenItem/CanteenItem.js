@@ -17,10 +17,9 @@ const CanteenItem = ({ item }) => {
       setExistsInBucket(true); // Mark as added to bucket
     }
     // dispatch(updateBucketQuantity(item, 1));
-    if(userInfo)
+  
     navigate(`/checkout/${item._id}`);
-  else
-   return alert("log in first")
+
   };
 
   const handleAddToBucket = () => {

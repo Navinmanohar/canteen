@@ -39,7 +39,7 @@ exports.register = async (req, res) => {
 
 exports.verifyOtp = async (req, res) => {
   const { email, otp } = req.body;
-  console.log("email:",email ,"this otp body:",otp) 
+  // console.log("email:",email ,"this otp body:",otp) 
   try {
     const user = await User.findOne({ email }).select("-password");
 
@@ -66,11 +66,11 @@ exports.verifyOtp = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-console.log(email,password)
+// console.log(email,password)
   try {
     // Check if the user exists
     const user = await User.findOne({ email });
-    console.log(user,process.env.JWT_SECRET)
+    // console.log(user,process.env.JWT_SECRET)
     if (!user) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
@@ -82,7 +82,7 @@ console.log(email,password)
 
     // Validate password
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(isMatch)
+    // console.log(isMatch)
     if (!isMatch) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
@@ -104,7 +104,7 @@ console.log(email,password)
 };
 exports.otpSend = async (req, res) => {
   const { email } = req.body;
-console.log(email)
+// console.log(email)
   try {
     const user = await User.findOne({ email });
    // Generate OTP and expiration time for login
@@ -154,7 +154,7 @@ exports.verifyProfileOtp = async (req, res) => {
 
 exports.checkUser=async(req,res)=>{
   const email=req.body.email;
-  console.log(email)
+  // console.log(email)
  try{
   const user=await User.findOne({email}).select("--pasword");
   user?res.status(200).json(user):res.status(200).json({})
@@ -167,7 +167,7 @@ exports.checkUser=async(req,res)=>{
 // Step 1: Request password reset
 exports.requestPasswordReset = async (req, res) => {
   const { email } = req.body;
-console.log(email,"email form reset")
+// console.log(email,"email form reset")
   try {
     const user = await User.findOne({ email });
     if (!user) {
@@ -179,7 +179,7 @@ console.log(email,"email form reset")
     user.otpExpires = Date.now() + 10 * 60 * 1000; // OTP valid for 10 minutes
 
     await user.save();
-console.log(user,otp,"from reset")
+// console.log(user,otp,"from reset")
     // Send OTP via email (replace with your email service)
     await sendEmail( user.email,'Password Reset Request',`Your password reset OTP is ${otp}. It is valid for 10 minutes.`, );
     // await sendEmail(user.email, 'OTP for Login', `Your OTP is: ${otp}`);
@@ -193,7 +193,7 @@ console.log(user,otp,"from reset")
 // Step 2: Verify OTP and reset password
 exports.resetPassword = async (req, res) => {
   const { email, otp, newPassword } = req.body;
-console.log(email,otp,newPassword,"form rest")
+// console.log(email,otp,newPassword,"form rest")
   try {
     const user = await User.findOne({ email, resetPasswordOtp: otp });
 

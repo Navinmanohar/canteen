@@ -7,7 +7,7 @@ const CanteenItem = require('../model/CanteenItem');
 // Apply for admin role (user sends request)
 exports.applyForAdmin = async (req, res) => {
   const userId = req.user.id;
-console.log(userId, "id apply")
+// console.log(userId, "id apply")
   try {
     const existingRequest = await AdminRequest.findOne({ userId, status: 'pending' });
     if (existingRequest) {
@@ -44,7 +44,7 @@ exports.cancelAdminRequest = async (req, res) => {
     if (!existingRequest) {
       return res.status(400).json({ error: 'No pending admin request found to cancel.' });
     }
-console.log(existingRequest.status,"cancel")
+// console.log(existingRequest.status,"cancel")
         existingRequest.status="cancel"
           await existingRequest.save()
     // Cancel the pending admin request (you can either delete or mark it as cancelled)
@@ -68,7 +68,7 @@ console.log(existingRequest.status,"cancel")
 
   exports.getProfile = async (req, res) => {
     const userId = req.query.userId || req.body.userId;
-   console.log(userId,"profile id")
+  //  console.log(userId,"profile id")
     try {
       const user = await User.findById(userId).select('-password -otp -otpExpires');
       if (!user) {
@@ -137,7 +137,7 @@ exports.getOrderHistory = async (req, res) => {
   try {
     // Find orders for the logged-in user
     const orders = await Order.find({ userId: req.user.id }).populate('items.itemId', 'name price');
-    console.log(orders)
+    // console.log(orders)
     if (!orders || orders.length === 0) {
       return res.status(404).json({ message: 'No orders found' });
     }
@@ -172,7 +172,7 @@ exports.createOrder = async (req, res) => {
   const { userId,amount,order_Id,payment_Id, items } = req.body;
 
   try {
-    console.log(items)
+    // console.log(items)
     let totalPrice = 0;
     // Calculate the total price of the order
     for (let i = 0; i < items.length; i++) {

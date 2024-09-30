@@ -5,11 +5,12 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar'; // Import Sidebar
 import DaysFilter from '../../components/SearchBar/DaysFilter';
-import { fetchAllItems } from '../../redux/actions/canteenActions';
+
+import { fetchAllItemsUser } from '../../redux/actions/userActions';
 
 const Home = () => {
   const { userInfo } = useSelector((state) => state.user);
-  const { allItem, loading, error } = useSelector((state) => state.items);
+  const { allItem, loading, error } = useSelector((state) => state.userData);
   const dispatch = useDispatch();
 
   // State to store filtered items based on search and day filters
@@ -17,9 +18,9 @@ const Home = () => {
   
   // Fetch all items when the component mounts
   useEffect(() => {
-    dispatch(fetchAllItems());
-  },[]); 
-  console.log(allItem,"from home")
+    dispatch(fetchAllItemsUser());
+  },[dispatch]); 
+  console.log(allItem,"from home") 
 
   // Set filteredItems to allItem initially when allItem is fetched from backend
   useEffect(() => {

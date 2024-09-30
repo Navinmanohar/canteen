@@ -12,13 +12,14 @@ router.post('/item-add', canteenAdminAuth, upload.single('image'), addCanteenIte
 router.put('/item/update/:itemId', canteenAdminAuth, upload.single('image'), updateCanteenItem); // Update item including image
 router.delete('/item/delete/:itemId', canteenAdminAuth, deleteCanteenItem);
 router.get('/all-item',canteenAdminAuth, AllItems);// make for user here authentication required {canteenAdminAuth}
+// router.get('/all-item/user', AllItems);// make for user here authentication required {canteenAdminAuth}
 
 // Order Management
-router.get('/view-orders',canteenAdminAuth, viewOrders);
-router.post('/order/accept/:orderId',canteenAdminAuth,acceptOrder);// in both accept and deny route middleware is required 
-router.post('/order/cancel/:orderId',canteenAdminAuth,  cancelOrder);
-router.get('/:orderId',canteenAdminAuth, getOrderById);
+router.get('/view-orders', viewOrders);
+router.post('/order/accept/:orderId',acceptOrder);// in both accept and deny route middleware is required 
+router.post('/order/cancel/:orderId', cancelOrder);
+router.get('/:orderId', getOrderById);
 // Transaction Management 
-router.get('/user/transactions',canteenAdminAuth, transactions);
+router.get('/user/transactions', transactions);
 
 module.exports = router;

@@ -45,9 +45,9 @@ export const fetchItemDetails = (id) => async (dispatch, getState) => {
     dispatch({ type: ITEM_REQUEST });
 
     const { userInfo } = getState().user;
-    const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
+    const config = { headers: { Authorization: `Bearer ${userInfo?.userData?.token}` } };
 
-    const { data } = await axios.get(`${BASE_URL}/api/user/item/?itemId=${id}`, config);
+    const { data } = await axios.get(`${BASE_URL}/api/user/item/?itemId=${id}`);
     console.log(data,"from canteen")
     dispatch({ type: ITEM_SUCCESS, payload: data });
   } catch (error) {

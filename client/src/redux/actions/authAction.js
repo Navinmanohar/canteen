@@ -49,7 +49,6 @@ export const registerUser = (name,phone,email, password) => async (dispatch) => 
     const { data } = await axios.post(`${BASE_URL}/api/auth/register`, { name,phone,email, password }, config);
        console.log(data ,"this is redux")
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
-    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     console.log(error ,"this is redux error")
     dispatch({

@@ -33,8 +33,8 @@ import ViewCanteenItems from './components/CanteenAdmin/ViewCanteenItems';
 
 function App() {
   const {userInfo}=useSelector((state)=>state.user)
-  const userType=userInfo?.userData.user.isAdmin
-  const SuperAdmin=userInfo?.userData.user.isSuperAdmin
+  // const userType=userInfo?.userData.user.isAdmin
+  // const SuperAdmin=userInfo?.userData.user.isSuperAdmin
   const footerLinks = [
     { name: 'Home', url: '/' },
     { name: 'About Us', url: '/about' },

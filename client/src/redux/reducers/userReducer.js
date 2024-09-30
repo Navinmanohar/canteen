@@ -14,6 +14,7 @@ import {
     CANCEL_ADMIN_SUCCESS,
     CANCEL_ADMIN_FAIL,
     USER_ORDER_HISTORY_SUCCESS,
+    CANTEEN_ITEM_USER_FAIL,CANTEEN_ITEM_USER_SUCCESS, CANTEEN_ITEM_USER_REQUEST
   } from '../constants/userConstants';
   
   const initialState = {
@@ -22,6 +23,7 @@ import {
     adminApplication: {},
     loading: false,
     error: null,
+    allItem:[]
   };
   
   export const userDataReducer = (state = initialState, action) => {
@@ -32,6 +34,7 @@ import {
       case APPLY_ADMIN_REQUEST:
       case GET_PROFILE_REQUEST:
       case VERIFY_PROFILE_OTP_REQUEST:
+      case CANTEEN_ITEM_USER_REQUEST:
         return { ...state, loading: true };
   
       case APPLY_ADMIN_SUCCESS:
@@ -41,6 +44,9 @@ import {
       case GET_PROFILE_SUCCESS:
       
         return { ...state, loading: false, userProfile: action.payload };
+      case CANTEEN_ITEM_USER_SUCCESS:
+      
+        return { ...state, loading: false, allItem: action.payload };
   
       case VERIFY_PROFILE_OTP_SUCCESS:
         return { ...state, loading: false, otpVerified: true };
@@ -58,6 +64,7 @@ import {
       case GET_PROFILE_FAIL:
       case CANCEL_ADMIN_FAIL:  
       case VERIFY_PROFILE_OTP_FAIL:
+      case CANTEEN_ITEM_USER_FAIL:
         return { ...state, loading: false, error: action.payload };
   
       default:

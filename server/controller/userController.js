@@ -239,3 +239,16 @@ exports.cancelOrder = async (req, res) => {
     res.status(500).json({ success: false, message: 'Error canceling order', error });
   }
 };
+exports.AllItemsUser = async (req, res) => {
+  // const adminId=req.query.adminId || req.body.adminId;
+  // console.log(adminId,"admin id")
+    try {
+      const item = await CanteenItem.find();
+      // console.log(item,"item data",adminId)
+  
+      res.status(200).json({ message: 'Item get successfully',item });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }
+  }; 

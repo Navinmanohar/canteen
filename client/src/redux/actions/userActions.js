@@ -13,6 +13,7 @@ import {
   VERIFY_PROFILE_OTP_SUCCESS,
   VERIFY_PROFILE_OTP_FAIL,
   USER_ORDER_HISTORY_SUCCESS,
+  CANTEEN_ITEM_USER_FAIL,CANTEEN_ITEM_USER_SUCCESS, CANTEEN_ITEM_USER_REQUEST
 } from '../constants/userConstants';
 
 const BASE_URL = "http://localhost:5000";
@@ -111,5 +112,21 @@ export const verifyProfileOTP = (otp) => async (dispatch, getState) => {
     });
   }
 };
+export const fetchAllItemsUser = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: CANTEEN_ITEM_USER_REQUEST });
+  console.log("requested")
+    const { userInfo } = getState().user;
+    // const config = { headers: { Authorization: `Bearer ${userInfo.userData.token}` } };
 
+    const { data } = await axios.get(`${BASE_URL}/api/user/all-item`);
+    console.log(data,"from canteen action")
+    dispatch({ type: CANTEEN_ITEM_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: CANTEEN_ITEM_USER_FAIL,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
 

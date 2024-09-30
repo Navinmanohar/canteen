@@ -7,10 +7,10 @@ const router = express.Router();
 router.get('/', canteenAdminAuth, viewOrders);
 
 // Accept an order
-router.post('/accept/:orderId', canteenAdminAuth, acceptOrder);
+router.post('/accept/:orderId', acceptOrder);
 
 // Cancel an order
-router.post('/cancel/:orderId', canteenAdminAuth, cancelOrder);
+router.post('/cancel/:orderId', cancelOrder);
 
 
 module.exports = router;

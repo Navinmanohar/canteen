@@ -58,3 +58,7 @@ ${BASE_URL}/api/user/order/cancel/:orderId  //cancel
 payment
 
 ${BASE_URL}/api/payment
+
+
+user: gecajer781@exweme.com  ,User@123
+admin:toles13494@abevw.com ,User@123

@@ -74,7 +74,7 @@ const request=JSON.parse(localStorage.getItem("userRequest"))
           <p className="text-blue-800">Welcome, User!</p>
           <p>You can browse the canteen menu and place orders.</p>
           <div className='flex gap-1'>
-          {!userInfo?.userData?.isAdmin!=true?<button className="mt-4 bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-700" onClick={handleApplyAdmin}>
+          {!userInfo?.userData?.isAdmin==true?<button className="mt-4 bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-700" onClick={handleApplyAdmin}>
             Apply for Admin
           </button>
           :<button className="mt-4 bg-red-300 text-white px-2 py-2 rounded hover:bg-red-700" onClick={handleCancelAdmin}>
@@ -155,5 +155,6 @@ const request=JSON.parse(localStorage.getItem("userRequest"))
     </div>
   );
 };
+
 
 export default Profile;

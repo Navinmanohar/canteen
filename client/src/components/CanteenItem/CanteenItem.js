@@ -6,6 +6,7 @@ import { updateBucketQuantity } from '../../redux/actions/BucketAction';
 const CanteenItem = ({ item }) => {
   const dispatch = useDispatch();
   const { bucketItems } = useSelector((state) => state.bucket);
+  const {userInfo}=useSelector((state)=>state.userData)
   const [existsInBucket, setExistsInBucket] = useState(false);
   const navigate = useNavigate();
   const imgUrl = process.env.REACT_APP_BASE_URL;
@@ -16,7 +17,10 @@ const CanteenItem = ({ item }) => {
       setExistsInBucket(true); // Mark as added to bucket
     }
     // dispatch(updateBucketQuantity(item, 1));
+    if(userInfo)
     navigate(`/checkout/${item._id}`);
+  else
+   return alert("log in first")
   };
 
   const handleAddToBucket = () => {

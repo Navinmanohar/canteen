@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import {thunk} from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import {userReducer} from '../reducers/authReducer.js';
 import {canteenReducer} from '../reducers/canteenReducer.js';
 import {adminReducer} from '../reducers/adminReducer';
@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
 // Create store with Redux Thunk middleware
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+applyMiddleware(thunk)
 );
 
 export default store;

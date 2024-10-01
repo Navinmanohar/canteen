@@ -214,7 +214,7 @@ const CanteenAdminDashboard = () => {
         <div className="mt-8">
           <h2 className="text-xl font-semibold">Canteen Items</h2>
           {loading ? (
-            <p>Loading items...</p>
+            <loading/>
           ) : (
             <table className="min-w-full mt-8">
               <thead>

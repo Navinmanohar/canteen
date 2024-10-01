@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../../../components/sidebar/Sidebar';
 import { fetchAllUsers, manageApplication, revokeUser } from '../../../redux/actions/adminActions';
 import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../../../components/Loading/Loading';
 
 const SuperAdminDashboard = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const SuperAdminDashboard = () => {
         <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">Super Admin Dashboard</h1>
 
         {loading ? (
-          <p className="text-center text-gray-600">Loading users...</p>
+          <Loading/>
         ) : error ? (
           <p className="text-center text-red-500">Error: {error}</p>
         ) : (

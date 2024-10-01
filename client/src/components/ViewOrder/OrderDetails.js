@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'; // To extract order ID from URL
 import { acceptOrder, cancelOrder, fetchOrderDetailsById } from '../../redux/actions/canteenActions';
+import LoadingComponent from '../Loading/Loading';
 
 const OrderDetails = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const OrderDetails = () => {
 
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingComponent/>;
   }
   // console.log(orderDetails,"details")
 

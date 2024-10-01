@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/actions/authAction';
 import { Link, useNavigate } from 'react-router-dom';
+import LoadingComponent from '../../components/Loading/Loading';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -31,8 +32,15 @@ const Login = () => {
 
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-4">Login</h1>
+      
+      {loading ? <div className='w-screen h-screen'>
+        <h2 className='text-center font-bold'>Please wait! i am conneting to the canteen...</h2>
+        <LoadingComponent/>
+        </div>:
+      <div><h1 className="text-3xl font-bold mb-4">Login</h1>
       {error && <p className="text-red-500">{error}</p>}
+    
+      
       <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg shadow-md">
         <div className="mb-4">
           <label className="block text-gray-700">Email</label>
@@ -56,7 +64,7 @@ const Login = () => {
           type="submit"
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
-          {loading ? 'Logging in...' : 'Login'}
+          Login
         </button>
         <p className="text-blue-500 mt-4">
           <Link to="/register">Don't have an account? Register here</Link>
@@ -66,6 +74,7 @@ const Login = () => {
           <Link to="/reset-password">Forgot Password?</Link>
         </p>
       </form>
+      </div>}
     </div>
   );
 };

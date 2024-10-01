@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { acceptOrder, cancelOrder, viewCanteenOrders } from '../../redux/actions/canteenActions';
 import { Link } from 'react-router-dom';
 import Sidebar from '../sidebar/Sidebar';
+import LoadingComponent from '../Loading/Loading';
 
 const ViewOrders = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const ViewOrders = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingComponent/>;
   }
 
   if (error) {

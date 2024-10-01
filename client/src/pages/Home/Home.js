@@ -72,7 +72,7 @@ const Home = () => {
           ) : error ? (
             <p>Error loading items</p>
           ) : filteredItems?.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <div className="flex justify-around flex-wrap gap-4 ml-16 mr-16 mt-16">
               {filteredItems.map((item) => (
                 <CanteenItem key={item.id} item={item} />
               ))}

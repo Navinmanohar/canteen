@@ -36,7 +36,7 @@ const CanteenItem = ({ item }) => {
   }, [bucketItems, item._id]);
 
   return (
-    <div className="mx-auto border p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-75 w-80">
+    <div className="mx-auto border p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-75 w-80 mt-5">
       <Link to={`/item/description/${item._id}`}>
         <img src={`${imgUrl}${item.imageUrl}`} alt={item.name} className="h-fit object-cover" />
         <h2 className="text-lg font-bold mt-2">{item.name}</h2>

@@ -7,25 +7,27 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const [user,setUser]=useState(false)
   const { loading, error, userInfo } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    dispatch(loginUser(email, password));
-
-    if (error) {
-      setEmail(email);
-      navigate('/login');
-    } else {
-      if (userInfo?.userData?.user?.isAdmin === true) {
-        navigate('/canteen-admin/view-order');
-      } else if (userInfo?.userData?.user?.isSuperAdmin === true) {
-        navigate('/admin');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(loginUser(email, password)); // Dispatch login action
+  };
+   
+  useEffect(() => {
+    // If userInfo is available, navigate based on their role
+    if (userInfo) {
+      if (userInfo?.userData?.user?.isSuperAdmin) {
+        navigate('/admin'); // Super Admin dashboard
+      } else if (userInfo?.userData?.user?.isAdmin) {
+        navigate('/canteen-admin/view-order'); // Canteen Admin dashboard
       } else {
-        navigate('/');
+        navigate('/'); // Regular user homepage
       }
     }
-  };
+  }, [userInfo, navigate]);
 
   return (
     <div className="container mx-auto p-8">

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CanteenItem from '../../components/CanteenItem/CanteenItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import Navbar from '../../components/Navbar/Navbar';
+// import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar'; // Import Sidebar
 import DaysFilter from '../../components/SearchBar/DaysFilter';
 
 import { fetchAllItemsUser } from '../../redux/actions/userActions';
+import Loading from '../../components/Loading/Loading';
 
 const Home = () => {
   const { userInfo } = useSelector((state) => state.user);
@@ -27,7 +28,7 @@ const Home = () => {
     if (allItem?.item) {
       setFilteredItems(allItem.item); // Assuming allItem.item is an array of items
     }
-  }, [allItem]);
+  }, [allItem,error,loading]);
 
   // Handle search functionality
   const handleSearch = (query) => {
@@ -49,6 +50,7 @@ const Home = () => {
 
   return (
     <div className="flex min-h-screen">
+      {loading??<Loading/>}
       {/* Show Sidebar only for Super Admin and Canteen Admin */}
       {userInfo?.userData?.user.isCanteenAdmin ? (
         <div className="w-64 h-screen bg-gray-800">
@@ -68,7 +70,7 @@ const Home = () => {
 
           {/* Display filtered items */}
           {loading ? (
-            <p>Loading items...</p>
+            <Loading/>
           ) : error ? (
             <p>Error loading items</p>
           ) : filteredItems?.length > 0 ? (

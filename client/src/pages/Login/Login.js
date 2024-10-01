@@ -22,7 +22,7 @@ const Login = () => {
       if (userInfo?.userData?.user?.isSuperAdmin) {
         navigate('/admin'); // Super Admin dashboard
       } else if (userInfo?.userData?.user?.isAdmin) {
-        navigate('/canteen-admin/view-order'); // Canteen Admin dashboard
+        navigate('/canteen-admin'); // Canteen Admin dashboard
       } else {
         navigate('/'); // Regular user homepage
       }

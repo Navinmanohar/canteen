@@ -73,8 +73,8 @@ export const verifyOTP = (email,otp) => async (dispatch, getState) => {
     dispatch({ type: USER_VERIFY_OTP_SUCCESS, payload: data });
 
     const getuserInfo = JSON.parse(localStorage.getItem('userInfo'));
-    const updatedUserInfo = { ...getuserInfo, isActive: true }; // Update the 'isActive' status
-    localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+    // const updatedUserInfo = { ...getuserInfo, isActive: true }; // Update the 'isActive' status
+    localStorage.setItem('userInfo',JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_VERIFY_OTP_FAIL,

@@ -161,7 +161,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer links={footerLinks} companyName="Study Abroad Dreamers" year={2024} />
+      <Footer links={footerLinks} companyName="Canteen Pvt Ltd" year={2024} />
     </Router>
   );
 }

@@ -8,7 +8,7 @@ const Navbar = () => {
   // console.log(userInfo?.userData?.user, "this is nav ");
 
   return (
-    <nav className="bg-gray-800 p-4 sticky top-0 z-50">
+    <nav className="bg-gray-800 p-4 sticky top-0 z-50 w-full">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white text-xl">Canteen</Link>
         <div className="flex space-x-4">

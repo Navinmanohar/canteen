@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = ({ links, companyName, year }) => {
   return (
-    <footer className="bg-gray-800 text-white py-6 mb-0">
+    <footer className="bg-gray-800 text-white py-6 mb-0 w-full">
       <div className="container mx-auto px-4">
         <div className="flex flex-col  justify-between items-center">
           {/* Company Name and Year */}

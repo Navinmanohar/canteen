@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { viewTransactions } from '../../redux/actions/canteenActions'; // Import the action
 import Sidebar from '../sidebar/Sidebar'; // Assuming you want to keep a sidebar for admin navigation
+import LoadingComponent from '../Loading/Loading';
 
 const ViewTransactions = () => {
   const dispatch = useDispatch();
@@ -15,9 +16,7 @@ const ViewTransactions = () => {
     }, 0));
   }, [dispatch]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+
 
   if (error) {
     return <p className="text-red-500">{error}</p>;
@@ -28,8 +27,10 @@ const ViewTransactions = () => {
       <div className="w-64">
         <Sidebar />
       </div>
-      
-      {/* Main content with proper width and margin */}
+      {loading ? <div className='w-screen h-screen'>
+        <h2 className='text-center font-bold'>Please wait! i am conneting to the canteen...</h2>
+        <LoadingComponent/>
+        </div>:
       <div className="flex-1 p-8">
         <div className="container ml-auto mr-4">
           <div className="flex justify-between items-center mb-4">
@@ -77,6 +78,7 @@ const ViewTransactions = () => {
           )}
         </div>
       </div>
+}
     </div>
   );
 };

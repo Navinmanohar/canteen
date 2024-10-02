@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerUser, verifyOTP } from '../../redux/actions/authAction';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import LoadingComponent from '../../components/Loading/Loading';
 
 const Register = () => {
   const [email, setEmail] = useState('');
